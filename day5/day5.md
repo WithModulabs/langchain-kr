@@ -99,3 +99,21 @@
 4. **실행 및 출력**
    - 입력 질문, 재작성된 질문, 최종 답변을 모두 출력하여 비교 가능
 
+
+## CH03_04. [다중 에이전트] Supervision 다중 에이전트 시스템으로 주식 종목 평가하기
+
+- 목적: 여러 에이전트(Researcher, Stock_Analyzer, Chart_Generator)와 Supervisor를 활용해 주식 종목(예: 엔비디아)에 대한 의사결정 과정을 자동화.
+- 주요 도구:
+  - TavilySearchResults: 웹 검색
+  - PythonREPLTool: 코드 실행
+  - yfinance: 주가 및 재무 데이터 수집
+  - LangChain의 create_react_agent, StateGraph 등
+- 구조:
+  1. Supervisor가 다음 작업자를 선택하고, 각 에이전트는 자신의 역할(정보 수집, 재무 분석, 차트 생성 등)을 수행 후 Supervisor에게 결과를 전달
+  2. Supervisor가 FINISH를 반환하면 종료
+- 실행 예시:
+  - "엔비디아 주식 구매 의사 결정 도와줘"와 같은 질문에 대해 각 에이전트가 순차적으로 정보를 수집, 분석, 시각화하여 의사결정 지원
+- 특징:
+  - 각 에이전트는 독립적으로 동작하며, Supervisor가 전체 흐름을 관리
+  - 최신 주가, 재무제표, 차트 등 다양한 정보를 통합적으로 제공
+
